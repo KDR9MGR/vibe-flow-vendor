@@ -40,10 +40,11 @@ export default function Register() {
   const onSubmit = async (values: FormValues) => {
     setLoading(true);
     try {
-      const res: any = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email: values.email,
         password: values.password,
         options: {
+          emailRedirectTo: `${window.location.origin}/dashboard`,
           data: {
             full_name: values.fullName,
             phone: values.phone,
@@ -52,7 +53,9 @@ export default function Register() {
         },
       });
 
-      if (res?.data?.session) {
+      if (error) {
+        toast.error(error.message);
+      } else if (data?.session) {
         toast.success("Account created. Welcome!");
         navigate("/dashboard", { replace: true });
       } else {

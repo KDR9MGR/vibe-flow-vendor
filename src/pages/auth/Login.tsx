@@ -34,10 +34,13 @@ export default function Login() {
   const onSubmit = async (values: FormValues) => {
     setLoading(true);
     try {
-      await supabase.auth.signInWithPassword({
+      const { error } = await supabase.auth.signInWithPassword({
         email: values.email,
         password: values.password,
       });
+      if (error) {
+        throw error;
+      }
       toast.success("Welcome back!");
       navigate("/dashboard", { replace: true });
     } catch (e: any) {

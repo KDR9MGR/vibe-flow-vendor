@@ -18,9 +18,9 @@ All colors MUST be HSL.
     --popover-foreground: 222.2 84% 4.9%;
 
     /* Brand palette */
-    --primary: 270 85% 55%; /* Vibrant violet */
+    --primary: 28 92% 50%; /* Vibrant orange */
     --primary-foreground: 210 40% 98%;
-    --primary-variant: 300 72% 52%; /* Magenta glow */
+    --primary-variant: 18 90% 55%; /* Warm amber */
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -67,9 +67,9 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 270 85% 65%;
+    --primary: 28 92% 60%;
     --primary-foreground: 222.2 47.4% 11.2%;
-    --primary-variant: 300 72% 60%;
+    --primary-variant: 18 90% 65%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
