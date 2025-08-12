@@ -28,7 +28,13 @@ export default function AuthLayout({ title, subtitle, children }: AuthLayoutProp
           className="absolute inset-0 h-full w-full object-cover"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-tr from-background/10 to-background/10" />
+        <div className="absolute inset-0 bg-black/80 flex items-center justify-center">
+          <img
+            src="/app_logo.svg"
+            alt="Bottles Up Logo"
+            className="w-32 h-auto opacity-80"
+          />
+        </div>
       </aside>
     </main>
   );
