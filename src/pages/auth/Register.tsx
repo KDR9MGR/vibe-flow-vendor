@@ -39,30 +39,30 @@ export default function Register() {
 
   const onSubmit = async (values: FormValues) => {
     setLoading(true);
-    const { data, error } = await supabase.auth.signUp({
-      email: values.email,
-      password: values.password,
-      options: {
-        data: {
-          full_name: values.fullName,
-          phone: values.phone,
-          vendor_type: values.vendorType,
+    try {
+      const res: any = await supabase.auth.signUp({
+        email: values.email,
+        password: values.password,
+        options: {
+          data: {
+            full_name: values.fullName,
+            phone: values.phone,
+            vendor_type: values.vendorType,
+          },
         },
-      },
-    });
-    setLoading(false);
+      });
 
-    if (error) {
-      toast.error(error.message);
-      return;
-    }
-
-    if (data.session) {
-      toast.success("Account created. Welcome!");
-      navigate("/dashboard", { replace: true });
-    } else {
-      toast("Check your email to confirm your account.");
-      navigate("/login");
+      if (res?.data?.session) {
+        toast.success("Account created. Welcome!");
+        navigate("/dashboard", { replace: true });
+      } else {
+        toast("Check your email to confirm your account.");
+        navigate("/login");
+      }
+    } catch (e: any) {
+      toast.error(e?.message ?? "Registration failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 

@@ -33,19 +33,18 @@ export default function Login() {
 
   const onSubmit = async (values: FormValues) => {
     setLoading(true);
-    const { error } = await supabase.auth.signInWithPassword({
-      email: values.email,
-      password: values.password,
-    });
-    setLoading(false);
-
-    if (error) {
-      toast.error(error.message);
-      return;
+    try {
+      await supabase.auth.signInWithPassword({
+        email: values.email,
+        password: values.password,
+      });
+      toast.success("Welcome back!");
+      navigate("/dashboard", { replace: true });
+    } catch (e: any) {
+      toast.error(e?.message ?? "Login failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
-
-    toast.success("Welcome back!");
-    navigate("/dashboard", { replace: true });
   };
 
   return (
