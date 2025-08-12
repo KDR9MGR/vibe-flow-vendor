@@ -37,7 +37,7 @@ export default function Register() {
 
   useEffect(() => {
     setPageSEO({
-      title: "Create Vendor Account | VibeFlow",
+      title: "Create Vendor Account | Bottles Up",
       description: "Register as a vendor to manage bottle service orders and view stats.",
       canonical: "/register",
     });
@@ -76,7 +76,7 @@ export default function Register() {
   };
 
   return (
-    <AuthLayout title="Create your vendor account" subtitle="Join VibeFlow to start receiving and tracking orders.">
+    <AuthLayout title="Create your vendor account" subtitle="Join Bottles Up to start receiving and tracking orders.">
       <form className="space-y-5" onSubmit={form.handleSubmit(onSubmit)}>
         <div className="space-y-2">
           <Label htmlFor="fullName">Full name</Label>
@@ -87,6 +87,11 @@ export default function Register() {
           <Label htmlFor="email">Email</Label>
           <Input id="email" type="email" placeholder="you@brand.com" {...form.register("email")} />
           <p className="text-sm text-destructive">{form.formState.errors.email?.message}</p>
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="password">Password</Label>
+          <Input id="password" type="password" placeholder="••••••••" {...form.register("password")} />
+          <p className="text-sm text-destructive">{form.formState.errors.password?.message}</p>
         </div>
         <div className="space-y-2">
           <Label htmlFor="phone">Phone number</Label>
@@ -107,12 +112,7 @@ export default function Register() {
           </Select>
           <p className="text-sm text-destructive">{form.formState.errors.vendorType?.message}</p>
         </div>
-        <div className="space-y-2">
-          <Label htmlFor="password">Password</Label>
-          <Input id="password" type="password" placeholder="••••••••" {...form.register("password")} />
-          <p className="text-sm text-destructive">{form.formState.errors.password?.message}</p>
-        </div>
-        <Button type="submit" className="w-full" variant="hero" disabled={loading}>
+        <Button type="submit" className="w-full bg-gradient-orange hover:glow-orange-strong transition-all duration-300 hover-lift" disabled={loading}>
           {loading ? "Creating account…" : "Create account"}
         </Button>
         <p className="text-sm text-muted-foreground text-center">

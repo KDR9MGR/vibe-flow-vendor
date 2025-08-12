@@ -25,7 +25,7 @@ export default function Login() {
 
   useEffect(() => {
     setPageSEO({
-      title: "Vendor Login | VibeFlow",
+      title: "Vendor Login | Bottles Up",
       description: "Login to manage bottle service orders and view vendor stats.",
       canonical: "/login",
     });
@@ -63,11 +63,11 @@ export default function Login() {
           <Input id="password" type="password" placeholder="••••••••" {...form.register("password")} />
           <p className="text-sm text-destructive">{form.formState.errors.password?.message}</p>
         </div>
-        <Button type="submit" className="w-full" variant="hero" disabled={loading}>
+        <Button type="submit" className="w-full bg-gradient-orange hover:glow-orange-strong transition-all duration-300 hover-lift" disabled={loading}>
           {loading ? "Signing in…" : "Sign in"}
         </Button>
         <p className="text-sm text-muted-foreground text-center">
-          New to VibeFlow? <Link to="/register" className="underline">Create an account</Link>
+          New to Bottles Up? <Link to="/register" className="underline">Create an account</Link>
         </p>
       </form>
     </AuthLayout>
