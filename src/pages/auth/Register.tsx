@@ -14,6 +14,12 @@ import { toast } from "sonner";
 
 const vendorTypes = ["Organizers", "Promoters", "Bottle Girls"] as const;
 
+const vendorTypeMapping = {
+  "Organizers": "organizer",
+  "Promoters": "promoter", 
+  "Bottle Girls": "bottle_girl"
+} as const;
+
 const schema = z.object({
   fullName: z.string().min(2, "Please enter your full name"),
   email: z.string().email("Enter a valid email"),
